@@ -55,6 +55,8 @@ const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
     const isLogin = pageType === "login";
     const isRegister = pageType === "register";
+    console.log("API Base URL: ", API_BASE_URL);
+
 
     const register = async(values,onSubmitProps) => {
         //this allows us to send form info with image
@@ -98,6 +100,7 @@ const Form = () => {
              token: loggedIn.token,
              })
         );
+
         navigate("/home");
         }
 }
