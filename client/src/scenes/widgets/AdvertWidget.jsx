@@ -2,12 +2,13 @@ import { Typography, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const AdvertWidget = () => {
   const { palette } = useTheme();
   const dark = palette.neutral.dark;
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
+  axios.defaults.withCredentials = true;
 
   return (
     <WidgetWrapper>

@@ -6,7 +6,7 @@ import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 import { API_BASE_URL } from '../Config';
-
+import axios from 'axios';
 //ee kinda bracket lo raase parameters anni that particular friend is taking those values as inputs ani ardam
 //parameters are -> friendId, name, subtitle, userPicturePath
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
@@ -21,7 +21,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const primaryDark = palette.primary.dark;
     const main = palette.neutral.main;
     const medium = palette.neutral.medium;
-
+    axios.defaults.withCredentials = true;
     const isFriend = friends.find((friend) => friend._id === friendId);
     const patchFriend = async () => { //making an api call to add/remove friends
         const response = await fetch (

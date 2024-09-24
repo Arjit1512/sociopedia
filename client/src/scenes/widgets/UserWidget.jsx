@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const UserWidget= ({userId,picturePath}) => {
     const[user,setUser] = useState(null);
     const {palette} = useTheme();
@@ -21,6 +21,7 @@ const UserWidget= ({userId,picturePath}) => {
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main; 
+    axios.defaults.withCredentials = true;
 
     const getUser = async () => {
         const response = await fetch(`${API_BASE_URL}/users/${userId}`,

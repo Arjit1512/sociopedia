@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./PostWidget";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const PostsWidget = ({userId,isProfile = false}) => {
 
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
+  axios.defaults.withCredentials = true;
 
 
   const getPosts = async () => {

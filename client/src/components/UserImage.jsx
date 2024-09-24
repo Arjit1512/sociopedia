@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 import { API_BASE_URL } from '../Config';
-
+import axios from 'axios';
 const UserImage = ({image,size = "60px"}) => {
+    axios.defaults.withCredentials = true;
     return (
         <Box width={size} height={size}>
             {/* profile image that you want to see for each user */}

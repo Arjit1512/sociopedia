@@ -8,13 +8,14 @@ import MyPostWidget from "scenes/widgets/MyPostWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import UserWidget from "scenes/widgets/UserWidget";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
+  axios.defaults.withCredentials = true;
   const getUser = async () => {
     const response = await fetch(`${API_BASE_URL}/users/${userId}`, {
       method: "GET",

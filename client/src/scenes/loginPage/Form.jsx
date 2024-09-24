@@ -9,6 +9,7 @@ import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 import { API_BASE_URL } from '../../Config.js';
+import axios from 'axios';
 
 
 const registerSchema = yup.object().shape(  /*ADE RA MANAM EDIANA FORM FILLUP CHESETAPUD EDAINA MISS CHESTE " *required " ANI VASTHAD KADA DAANI KOSAM*/
@@ -55,6 +56,7 @@ const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
     const isLogin = pageType === "login";
     const isRegister = pageType === "register";
+    axios.defaults.withCredentials = true;
     console.log("API Base URL: ", API_BASE_URL);
 
 

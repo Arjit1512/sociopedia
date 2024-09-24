@@ -5,12 +5,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "state";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
+  axios.defaults.withCredentials = true;
 
   const getFriends = async () => {
     const response = await fetch(

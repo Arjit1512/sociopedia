@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "state";
 import { API_BASE_URL } from '../../Config.js';
-
+import axios from 'axios';
 const PostWidget = ({
     postId,
     postUserId,
@@ -36,6 +36,7 @@ const PostWidget = ({
     const { palette } = useTheme();
     const main = palette.neutral.main;
     const primary = palette.primary.main;
+    axios.defaults.withCredentials = true;
   
     const patchLike = async () => {
       const response = await fetch(`${API_BASE_URL}/posts/${postId}/like`, {
