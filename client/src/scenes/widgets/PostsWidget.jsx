@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./PostWidget";
+import { API_BASE_URL } from '../../Config.js';
 
 const PostsWidget = ({userId,isProfile = false}) => {
 
@@ -11,7 +12,7 @@ const PostsWidget = ({userId,isProfile = false}) => {
 
 
   const getPosts = async () => {
-    const response = await fetch("http://localhost:3001/posts", //*nuvvu server->routes->posts.js lo ee URL aythe pedtavo ade URL vaadali
+    const response = await fetch(`${API_BASE_URL}/posts`, //*nuvvu server->routes->posts.js lo ee URL aythe pedtavo ade URL vaadali
     { 
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
@@ -22,7 +23,7 @@ const PostsWidget = ({userId,isProfile = false}) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`, //*nuvvu server->routes->posts.js lo ee URL aythe pedtavo ade URL vaadali
+      `${API_BASE_URL}/posts/${userId}/posts`, //*nuvvu server->routes->posts.js lo ee URL aythe pedtavo ade URL vaadali
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

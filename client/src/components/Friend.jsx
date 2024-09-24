@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
-
+import { API_BASE_URL } from '../Config';
 
 //ee kinda bracket lo raase parameters anni that particular friend is taking those values as inputs ani ardam
 //parameters are -> friendId, name, subtitle, userPicturePath
@@ -25,7 +25,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const isFriend = friends.find((friend) => friend._id === friendId);
     const patchFriend = async () => { //making an api call to add/remove friends
         const response = await fetch (
-            `http://localhost:3001/users/${_id}/${friendId}`,
+            `${API_BASE_URL}/users/${_id}/${friendId}`,
             {
                 method:"PATCH",
                 headers:{

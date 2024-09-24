@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^1.0.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -49,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
